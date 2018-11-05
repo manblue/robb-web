@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd  
+	http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://code.alibabatech.com/schema/dubbo 
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+    http://www.springframework.org/schema/data/jpa 
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+    http://www.springframework.org/schema/rabbit
+    http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd
+    "
+	default-autowire="byType">
+
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.robb.contraller" />
+	<context:component-scan base-package="com.robb.manager" />
+	<!-- 
+	<context:component-scan base-package="com.robb.listener" /> -->
+	
+
+
+	<!--催收相关 
+	<context:component-scan base-package="com.lyc.soa.message.producer" />-->
+
+	<!-- 扫描获取系统参数路径 
+	<context:component-scan base-package="com.lyc.common.SystemParameter" />-->
+	<!--
+	<context:property-placeholder
+		location="classpath:config.properties,classpath*:queue.properties,classpath*:redis.properties" />
+	<task:annotation-driven />-->
+
+	<!-- redis 连接
+	<bean id="shardedJedisPool" class="com.lyc.db.redis.utils.MyShardedJedisPool"
+		factory-method="getJedisPool" />
+	<bean class="com.lyc.db.redis.dao.RedisDao">
+		<property name="jedisPool" ref="shardedJedisPool" />
+	</bean>
+ -->
+	<!-- rabbitMq 连接
+	<bean class="com.lyc.queue.MQServiceFactory" factory-method="getService" />-->
+	<!-- redis 连接 
+	<bean id="redisDao" class="com.lyc.db.redis.dao.RedisDao"></bean>-->
+<!--
+	<import resource="classpath*:spring/rabbitmq_producer.xml" />
+
+	<import resource="classpath*:spring/mongo_db_conf.xml" />
+
+	<import resource="classpath*:spring/redis.xml" />-->
+</beans>
