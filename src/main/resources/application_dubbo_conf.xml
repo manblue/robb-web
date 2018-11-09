@@ -17,7 +17,7 @@
 
 	<dubbo:application name="server-rest-admin" />
 
-	<dubbo:registry protocol="zookeeper" address="192.168.0.126:2181" client="curator" group="robb" />
+	<dubbo:registry protocol="zookeeper" address="192.168.2.203:2181" client="curator" group="robb" />
 	<!-- dubbo filter -->
 	<dubbo:consumer timeout="90000" retries="0" check="true" filter="testFilter" />
 
