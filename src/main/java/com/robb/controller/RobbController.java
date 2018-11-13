@@ -1,4 +1,4 @@
-package com.robb.contraller;
+package com.robb.controller;
 
 import java.util.HashMap;
 
@@ -19,10 +19,8 @@ public class RobbController {
 	private RobbManager robbManager;
 	
 	
-	@ResponseBody
 	@RequestMapping("add")
 	public RobbReponse add(String name) {
-		robbManager.add(name);
-		return RobbReponse.getRobbReponse(0, new HashMap<String, Object>());
+		return robbManager.add(name);
 	}
 }

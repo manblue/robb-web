@@ -65,4 +65,13 @@
 	<import resource="classpath*:spring/mongo_db_conf.xml" />
 
 	<import resource="classpath*:spring/redis.xml" />-->
+	
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"  
+        p:ignoreDefaultModelOnRedirect="true" >  
+            <property name="messageConverters">  
+                <list>  
+                    <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>  
+                </list>  
+            </property>  
+        </bean>  
 </beans>

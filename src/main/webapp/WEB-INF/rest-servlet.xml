@@ -20,12 +20,13 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.robb.contraller" />
 	<context:component-scan base-package="com.robb.manager" />
-	<!-- 
+	
+	<!-- 返回json 数据转换 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters>
-			<bean class="com.lyc.common.messageconverter.JSONResultJackJsonMessageConverter">
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<property name="objectMapper">
-					<bean class="com.lyc.common.messageconverter.CommonObjectMapper">
+					<bean class="com.robb.messageconverter.CommonObjectMapper">
 						<property name="dateFormat">
 							<bean class="java.text.SimpleDateFormat">
 								<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
@@ -35,10 +36,7 @@
 				</property>
 			</bean>
 		</mvc:message-converters>
-	</mvc:annotation-driven> -->
-
-<!-- -->
-	<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean> 
+	</mvc:annotation-driven> 
 
 
 	<!-- <mvc:view-controller path="/admin" view-name="/index"/> -->
