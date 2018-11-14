@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.robb.annotation.AutoController;
 import com.robb.common.RobbReponse;
@@ -20,8 +21,14 @@ public class RobbManager {
 	private RobbService robbService;
 	
 	@RequestMapping(value="add",method = RequestMethod.GET)
-	public RobbReponse add(String name) {
-		robbService.add(name);
-		return RobbReponse.getRobbReponse(0, new HashMap<String, Object>());
+	public RobbReponse add(@RequestParam(name="name") String name) {
+		System.out.println("----"+getClass().getClassLoader());
+		robbService.add(name); 
+		//dkdjfdkjk
+		return RobbReponse.addSuccessResponse("ok", new HashMap<String, Object>());
+	}
+	
+	static{
+		System.out.println("------"+RobbManager.class+"-"+RobbManager.class.getClassLoader());
 	}
 }
