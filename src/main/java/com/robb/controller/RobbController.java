@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ public class RobbController {
 	
 	
 	@RequestMapping(value="add",method = RequestMethod.GET)
-	public RobbReponse add(String name) {
+	public RobbReponse add(@RequestParam(name ="name")String name) {
 		return robbManager.add(name);
 	}
 }

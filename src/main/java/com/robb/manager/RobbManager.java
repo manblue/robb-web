@@ -28,6 +28,7 @@ public class RobbManager {
 		return RobbReponse.addSuccessResponse("ok", new HashMap<String, Object>());
 	}
 	
+	
 	static{
 		System.out.println("------"+RobbManager.class+"-"+RobbManager.class.getClassLoader());
 	}
