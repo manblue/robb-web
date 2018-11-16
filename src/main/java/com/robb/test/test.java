@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.objectweb.asm.Type;
+import org.objectweb.asm.signature.SignatureReader;
 
 import com.robb.asm.DefaultManager2Controller;
 import com.robb.manager.RobbManager;
@@ -21,10 +22,13 @@ public class test {
 
 
 		for (Method md : RobbManager.class.getDeclaredMethods()) {
-			if (!md.getName().equals("add")) {
-				continue;
-			}
+//			if (!md.getName().equals("add")) {
+//				continue;
+//			}
 			
+			String mdes = Type.getMethodDescriptor(md);
+			Type type = Type.getMethodType(mdes);
+			type = Type.getType(md);
 			System.out.println("----class method:"+md.getName()+"-MethodDescriptor:"+Type.getMethodDescriptor(md));
 			for (Annotation ma : md.getAnnotations()) {
 				System.out.println("----class method:"+md.getName()+"-annotationType:"+ma.annotationType());
@@ -48,6 +52,7 @@ public class test {
 				
 			}
 		}
+		
 		
 	}
 

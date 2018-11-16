@@ -1,6 +1,8 @@
 package com.robb.controller;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,4 +27,10 @@ public class RobbController {
 	public RobbReponse add(@RequestParam(name ="name")String name) {
 		return robbManager.add(name);
 	}
+	
+	public RobbReponse add1(@RequestParam(name="name") String name,String n1,String n2,String n3,
+			int n4,Long n5,String[] n6,String n7,String n8,BigDecimal n9,List<String> n10) {
+		return robbManager.add1(name, n1, n2, n3, n4, n5, n6, n7, n8, n9,n10);
+	}
+
 }
