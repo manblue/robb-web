@@ -1,5 +1,6 @@
 package com.robb.test;
 
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,9 +13,12 @@ import org.objectweb.asm.signature.SignatureReader;
 import com.robb.asm.DefaultManager2Controller;
 import com.robb.manager.RobbManager;
 
+import jdk.internal.org.objectweb.asm.ClassReader;
+import jdk.internal.org.objectweb.asm.tree.ClassNode;
+
 public class test {
 
-	public static void main(String[] args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static void main(String[] args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
 		// TODO Auto-generated method stub
 
 //		Class ccClass = DefaultManager2Controller.buildControClass(RobbManager.class);
@@ -51,6 +55,17 @@ public class test {
 				}
 				
 			}
+			
+			
+			
+			//---------------------------------------
+//			InputStream is = managerClass.getClassLoader().getSystemResourceAsStream(managerClass.getName().replace(".", "/")+".class");
+
+			ClassReader reader = new ClassReader(ClassLoader.getSystemResourceAsStream(RobbManager.class.getName().replace(".", "/")+".class"));
+			ClassNode node = new ClassNode();
+			
+			
+			
 		}
 		
 		
