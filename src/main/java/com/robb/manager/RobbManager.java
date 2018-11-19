@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.ContextLoader;
 
 import com.robb.annotation.AutoController;
 import com.robb.common.RobbReponse;
@@ -16,7 +17,7 @@ import com.robb.service.RobbService;
 
 @Component
 @AutoController
-@RequestMapping(value="robb/")
+@RequestMapping(value="robb1/")
 public class RobbManager {
 
 	@Autowired
@@ -26,7 +27,11 @@ public class RobbManager {
 	public RobbReponse add(@RequestParam(name="name") String name) {
 		System.out.println("----"+getClass().getClassLoader());
 		robbService.add(name); 
-		//dkdjfdkjk
+		for (String beanName : ContextLoader.getCurrentWebApplicationContext().getBeanDefinitionNames()) {
+			System.out.println("-------beanName---:"+beanName);
+		};
+
+		System.out.println("------robbController1----:"+ContextLoader.getCurrentWebApplicationContext().getBean("robbController1"));
 		return RobbReponse.addSuccessResponse("ok", new HashMap<String, Object>());
 	}
 	

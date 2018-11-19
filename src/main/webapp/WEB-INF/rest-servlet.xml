@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:autocontroller="http://local/schema/autocontroller"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd  
 	http://www.springframework.org/schema/task
@@ -12,15 +13,22 @@
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd
 	http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd"
+    http://www.springframework.org/schema/context/spring-context.xsd
+        http://local/schema/autocontroller
+    http://local/schema/autocontroller/spring-auto-controller.xsd"
 	default-autowire="byType">
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 
 
 	<context:annotation-config />
+	<!-- 
 	<context:component-scan base-package="com.robb.contraller" />
 	<context:component-scan base-package="com.robb.manager" />
-	
+	 -->
+	 
+	<context:component-scan base-package="com.robb.contraller" />
+	<autocontroller:component-scan base-package="com.robb.manager" base-controller="com.robb.controller.BaseController"/>
+	 
 	<!-- 返回json 数据转换 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters>
