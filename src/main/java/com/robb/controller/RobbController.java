@@ -16,7 +16,7 @@ import com.robb.manager.RobbManager;
 
 
 //@RestController
-@RequestMapping("robb/")
+//@RequestMapping("robb/")
 public class RobbController {
 
 	@Autowired

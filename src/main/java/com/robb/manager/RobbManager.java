@@ -62,8 +62,8 @@ public class RobbManager {
 	}
 	public int[] name6() {
 		return null;
-	}
-	static{
-		System.out.println("------"+RobbManager.class+"-"+RobbManager.class.getClassLoader());
-	}
+	} 
+//	static{
+//		System.out.println("------"+RobbManager.class+"-"+RobbManager.class.getClassLoader());
+//	}
 }
