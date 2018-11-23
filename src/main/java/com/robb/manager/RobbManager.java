@@ -31,7 +31,6 @@ public class RobbManager {
 			System.out.println("-------beanName---:"+beanName);
 		};
 
-		System.out.println("------robbController1----:"+ContextLoader.getCurrentWebApplicationContext().getBean("robbController1"));
 		return RobbReponse.addSuccessResponse("ok", new HashMap<String, Object>());
 	}
 	
