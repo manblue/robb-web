@@ -27,8 +27,11 @@ public class InitListener implements ApplicationContextAware,
 	}
 
 	public void onApplicationEvent(ContextRefreshedEvent event) {
+		logger.error("ContextRefreshed, ApplicationContext:{}", event.getApplicationContext());
 		if (event.getApplicationContext().getParent() == null) {
-			logger.error("ContextRefreshed, ApplicationContext:{}", event.getApplicationContext());
+			for (String bdn : context.getBeanDefinitionNames()) {
+				logger.error("onApplicationEvent, ApplicationContext.bdn:{}", bdn);
+			}
 		}
 	}
 
