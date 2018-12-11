@@ -16,8 +16,8 @@ import com.robb.common.RobbReponse;
 import com.robb.service.RobbService;
 
 @Component
-@AutoController
-@RequestMapping(value="robb1/")
+//@AutoController
+//@RequestMapping(value="robb1/")
 public class RobbManager {
 
 	@Autowired
